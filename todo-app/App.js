@@ -52,7 +52,7 @@ export default class TodoApp extends Component {
       <Container>
         <Header>
           <Left> 
-            <Button onPress={this.buttonPressed} transparent>
+            <Button style={styles.button} onPress={this.buttonPressed} transparent>
               <Icon name='menu' />
             </Button>
           </Left>
@@ -76,9 +76,9 @@ export default class TodoApp extends Component {
               <Text style={styles.listItem}>
                 {item.text}
               </Text>
-              <Button iconRight transparent primary
-                onPress={ () => this.deleteTask(index) } >
-                <Icon name='trash' />
+              <Button transparent primary onPress={ () => this.deleteTask(index) } >
+                <Icon  style={styles.icon} name='trash' />
+                
               </Button>
             </View>
             <View style={styles.hr} />
@@ -92,12 +92,13 @@ export default class TodoApp extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#FFF',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
   list: {
-    paddingRight: 10,
+    paddingTop: 5,
+    paddingRight: 0,
     paddingLeft: 10,
     width: "100%"
   },
@@ -117,9 +118,22 @@ const styles = StyleSheet.create({
   },
   textInput: {
     height: 40,
+    paddingTop: 5,
     paddingRight: 10,
     paddingLeft: 10,
     borderColor: "gray",
     width: "100%"
+  },
+  icon: {
+    margin: 0,
+    padding: 5,
+    color: "black",
+    right: 0
+    
+  },
+  button: {
+    marginLeft: -100,
+    paddingLeft: 0,
+    
   }
 });
