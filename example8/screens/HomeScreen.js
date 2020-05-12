@@ -4,6 +4,20 @@ import { Button, Text, View } from 'react-native';
 export default class HomeScreen extends Component {
     static navigationOptions = {
         title: 'Welcome HomeScreen',
+        headerStyle: {
+            backgroundColor: '#f77f00',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+        },
+        headerRight: () => (
+            <Button
+                onPress={() => alert('This is a button!')}
+                title="Info"
+                color='#d62828'
+            />
+        ),
     };
     didFocusSubscription = this.props.navigation.addListener(
         'didFocus',
@@ -25,7 +39,7 @@ export default class HomeScreen extends Component {
         const { navigate } = this.props.navigation;
         const name = this.props.navigation.getParam('name', 'Luigi');
         return (
-            <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+            <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: '#EAE2B7'}}>
                 <Text>Home Screen Welcome {name}</Text>
                 <Button
                     title="Go to Jane's details"
@@ -34,6 +48,7 @@ export default class HomeScreen extends Component {
                         otherParam: 'anything you want here',
                         name: 'Jane'
                     })}
+                    color='#fcbf49'
                 />
             </View>
         );
