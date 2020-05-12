@@ -29,7 +29,11 @@ export default class HomeScreen extends Component {
                 <Text>Home Screen Welcome {name}</Text>
                 <Button
                     title="Go to Jane's details"
-                    onPress={() => navigate('Details', { name: 'Jane' })}
+                    onPress={() => navigate('Details', {
+                        itemId: 86,
+                        otherParam: 'anything you want here',
+                        name: 'Jane'
+                    })}
                 />
             </View>
         );
