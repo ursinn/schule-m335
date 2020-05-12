@@ -2,39 +2,37 @@ import React, { Component } from "react";
 import { Button, Text, View } from 'react-native';
 
 export default class HomeScreen extends Component {
-    static navigationOptions = {
-        title: 'Welcome HomeScreen',
-        headerStyle: {
-            backgroundColor: '#f77f00',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-            fontWeight: 'bold',
-        },
-        headerRight: () => (
-            <Button
-                onPress={() => alert('This is a button!')}
-                title="Info"
-                color='#d62828'
-            />
-        ),
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: 'Welcome HomeScreen',
+            headerStyle: {
+                backgroundColor: '#f77f00',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                fontWeight: 'bold',
+            },
+            headerRight: () => (
+                <Button
+                    onPress={
+                        navigation.getParam('increaseCount')
+                    }
+                    title="+1"
+                    color='#d62828'
+                />
+            ),
+        };
     };
-    didFocusSubscription = this.props.navigation.addListener(
-        'didFocus',
-        payload => {
-            console.debug('didFocus', payload);
-            console.debug('state: ' + this.props.navigation.state.routeName
-                + " " + this.props.navigation.state.key
-                    // + " " + this.props.state.params.name
-            );
-        }
-    );
-    didBlurSubscription = this.props.navigation.addListener(
-        'didBlur',
-        payload => {
-            console.debug('didBlur', payload);
-        }
-    );
+    componentWillMount() {
+        this.props.navigation.setParams({ increaseCount: this._increaseCount });
+    }
+    state = {
+        count: 0,
+    }
+    _increaseCount = () => {
+        this.setState({ count: this.state.count + 1 });
+    }
+
     render() {
         const { navigate } = this.props.navigation;
         const name = this.props.navigation.getParam('name', 'Luigi');
