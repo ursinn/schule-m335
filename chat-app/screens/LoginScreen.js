@@ -24,7 +24,7 @@ class LoginScreen extends Component {
   render() {
     return (
       <View>
-        <Text style={styles.title}>Enter your name:</Text>
+        <Text style={styles.title}>Dein Name:</Text>
         <TextInput
           style={styles.nameInput}
           placeHolder="John Cena"
