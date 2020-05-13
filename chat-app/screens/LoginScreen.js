@@ -8,9 +8,18 @@ import {
 } from 'react-native';
 
 class LoginScreen extends Component {
-  static navigationOptions = {
-    title: 'Chatter',
-  };
+  static navigationOptions = ({ navigation }) => {
+    return {
+        title: 'Login',
+        headerStyle: {
+            backgroundColor: '#f77f00',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+            fontWeight: 'bold',
+        },
+    };
+  }
 
   state = {
     name: '',
