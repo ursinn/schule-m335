@@ -19,6 +19,7 @@ class ChatScreen extends Component {
 
   state = {
     messages: [],
+    isTyping: false,
   };
 
   get user() {
@@ -34,11 +35,23 @@ class ChatScreen extends Component {
         messages={this.state.messages}
         onSend={Fire.shared.send}
         user={this.user}
+        isTyping={this.state.isTyping}
+        renderUsernameOnMessage={true}
       />
     );
   }
 
   componentDidMount() {
+    this.setState(previousState => ({
+      messages: [
+        {
+          _id: 1,
+          text: 'Hello User Thanks for Using',
+          system: true,
+        }
+      ],
+      isTyping: false,
+    }))
     Fire.shared.on(message =>
       this.setState(previousState => ({
         messages: GiftedChat.append(previousState.messages, message),

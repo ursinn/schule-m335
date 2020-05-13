@@ -53,7 +53,7 @@ class Fire {
   
     on = callback =>
       this.ref
-        .limitToLast(20)
+        .limitToLast(100)
         .on('child_added', snapshot => callback(this.parse(snapshot)));
   
     get timestamp() {
