@@ -21,7 +21,7 @@ class LoginScreen extends Component {
         const { navigation } = this.props;
         return (
             <View>
-                <Text>Name: {navigation.getParam('name', '')}</Text>
+                <Text>Name: {navigation.getParam('name', 'No Name')}</Text>
             </View>
         )
     };

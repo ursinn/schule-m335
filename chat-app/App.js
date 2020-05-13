@@ -7,25 +7,22 @@ import LoginScreen from './screens/LoginScreen';
 import ChatScreen from './screens/ChatScreen'
 import AboutScreen from './screens/AboutScreen'
 
-const LoginStack = createStackNavigator({
+const HomeStack = createStackNavigator({
   Login: LoginScreen,
-});
-
-const ChatStack = createStackNavigator({
   Chat: ChatScreen,
+},
+{
+  initialRouteName: 'Login'
 });
 
 const AboutStack = createStackNavigator({
   About: AboutScreen,
 });
 
-let DrawerNavigator = createDrawerNavigator(
-  {
-    Login: LoginStack,
-    Chat: ChatStack,
-    About: AboutStack,
-  }
-);
+let DrawerNavigator = createDrawerNavigator({
+  Home: HomeStack,
+  About: AboutStack,
+});
 
 const AppContainer = createAppContainer(DrawerNavigator);
 
