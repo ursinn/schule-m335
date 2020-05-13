@@ -4,7 +4,6 @@ import { GiftedChat } from 'react-native-gifted-chat';
 import Fire from '../Fire';
 
 class ChatScreen extends Component {
-
   static navigationOptions = ({ navigation }) => {
     return {
         title: 'Global Chat',

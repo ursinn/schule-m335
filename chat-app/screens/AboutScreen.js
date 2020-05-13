@@ -7,7 +7,7 @@ import {
 class LoginScreen extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
-            title: 'Global Chat',
+            title: 'About Us',
             headerStyle: {
                 backgroundColor: '#f77f00',
             },
