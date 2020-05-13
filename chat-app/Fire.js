@@ -41,10 +41,10 @@ class Fire {
     parse = snapshot => {
       const { timestamp: numberStamp, text, user } = snapshot.val();
       const { key: _id } = snapshot;
-      const timestamp = new Date(numberStamp);
+      const createdAt = new Date(numberStamp);
       const message = {
         _id,
-        timestamp,
+        createdAt,
         text,
         user,
       };
