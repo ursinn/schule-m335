@@ -7,6 +7,7 @@ import Fire from '../Fire';
 
 class ChatScreen extends Component {
   componentWillMount() {
+    /*
     RNShake.addEventListener('ShakeEvent', () => {
         sendEmail(
             'test@gmail.com',
@@ -16,6 +17,7 @@ class ChatScreen extends Component {
             console.log('Our email successful provided to device mail ');
         });
     });
+    */
   }
 
   static navigationOptions = ({ navigation }) => {
@@ -74,7 +76,7 @@ class ChatScreen extends Component {
   }
   componentWillUnmount() {
     Fire.shared.off();
-    RNShake.removeEventListener('ShakeEvent');
+    // RNShake.removeEventListener('ShakeEvent');
   }
 }
 
