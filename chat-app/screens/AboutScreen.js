@@ -6,8 +6,8 @@ import { sendEmail } from '../sendEmail';
 
 class LoginScreen extends Component {
     componentWillMount() {
-        /*
         RNShake.addEventListener('ShakeEvent', () => {
+            console.log("OK")
             sendEmail(
                 'test@gmail.com',
                 'Greeting!',
@@ -16,11 +16,10 @@ class LoginScreen extends Component {
                 console.log('Our email successful provided to device mail ');
             });
         });
-        */
     }
 
     componentWillUnmount() {
-        // RNShake.removeEventListener('ShakeEvent');
+        RNShake.removeEventListener('ShakeEvent');
     }
 
     static navigationOptions = ({ navigation }) => {
