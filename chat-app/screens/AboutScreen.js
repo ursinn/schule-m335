@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { ShakeEventExpo } from '../ShakeEventExpo';
 import { sendEmail } from '../sendEmail';
 
-class LoginScreen extends Component {
+class AboutScreen extends Component {
     componentWillUnmount() {
         ShakeEventExpo.removeListener();
     }
