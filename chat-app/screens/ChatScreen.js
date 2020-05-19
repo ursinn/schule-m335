@@ -1,25 +1,10 @@
 import React, { Component } from "react";
 import { GiftedChat } from 'react-native-gifted-chat';
-import RNShake from 'react-native-shake';
-
+import { ShakeEventExpo } from '../ShakeEventExpo';
 import { sendEmail } from '../sendEmail';
 import Fire from '../Fire';
 
 class ChatScreen extends Component {
-  componentWillMount() {
-    /*
-    RNShake.addEventListener('ShakeEvent', () => {
-        sendEmail(
-            'test@gmail.com',
-            'Greeting!',
-            'I think you are fucked up how many letters you get.'
-        ).then(() => {
-            console.log('Our email successful provided to device mail ');
-        });
-    });
-    */
-  }
-
   static navigationOptions = ({ navigation }) => {
     return {
         title: 'Global Chat',
@@ -46,6 +31,16 @@ class ChatScreen extends Component {
   }
 
   render() {
+    ShakeEventExpo.addListener(() => {
+      sendEmail(
+          'intuser.werbung@gmail.com',
+          'Chat App Bug Report!',
+          'Dud there is a Bug in Chat!'
+      ).then(() => {
+          console.log('Our email successful provided to device mail ');
+      });
+    });
+
     return (
       <GiftedChat
         messages={this.state.messages}
@@ -74,9 +69,9 @@ class ChatScreen extends Component {
       }))
     );
   }
+  
   componentWillUnmount() {
-    Fire.shared.off();
-    // RNShake.removeEventListener('ShakeEvent');
+    ShakeEventExpo.removeListener();
   }
 }
 

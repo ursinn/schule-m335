@@ -1,25 +1,11 @@
 import React, { Component } from "react";
 import { View, Text } from 'react-native';
-import RNShake from 'react-native-shake';
-
+import { ShakeEventExpo } from '../ShakeEventExpo';
 import { sendEmail } from '../sendEmail';
 
 class LoginScreen extends Component {
-    componentWillMount() {
-        RNShake.addEventListener('ShakeEvent', () => {
-            console.log("OK")
-            sendEmail(
-                'test@gmail.com',
-                'Greeting!',
-                'I think you are fucked up how many letters you get.'
-            ).then(() => {
-                console.log('Our email successful provided to device mail ');
-            });
-        });
-    }
-
     componentWillUnmount() {
-        RNShake.removeEventListener('ShakeEvent');
+        ShakeEventExpo.removeListener();
     }
 
     static navigationOptions = ({ navigation }) => {
@@ -35,6 +21,16 @@ class LoginScreen extends Component {
         };
     }
     render() {
+        ShakeEventExpo.addListener(() => {
+            sendEmail(
+                'intuser.werbung@gmail.com',
+                'Chat App Bug Report!',
+                'Dud there is a Bug in About!'
+            ).then(() => {
+                console.log('Our email successful provided to device mail ');
+            });
+        });
+
         const { navigation } = this.props;
         return (
             <View>
