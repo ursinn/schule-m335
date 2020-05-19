@@ -722,6 +722,5 @@ pkg/
 .vscode/*
 
 ### Project ###
-chat-app/package.json
 chat-app/yarn.lock
 chat-app/package.json

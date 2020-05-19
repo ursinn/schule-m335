@@ -1,13 +1,26 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import RNShake from 'react-native-shake';
+
+import { sendEmail } from '../sendEmail';
 
 class LoginScreen extends Component {
+  componentWillMount() {
+    RNShake.addEventListener('ShakeEvent', () => {
+        sendEmail(
+            'test@gmail.com',
+            'Greeting!',
+            'I think you are fucked up how many letters you get.'
+        ).then(() => {
+            console.log('Our email successful provided to device mail ');
+        });
+    });
+  }
+
+  componentWillUnmount() {
+      RNShake.removeEventListener('ShakeEvent');
+  }
+
   static navigationOptions = ({ navigation }) => {
     return {
         title: 'Login',
