@@ -37,7 +37,15 @@ class LoginScreen extends Component {
         const { navigation } = this.props;
         return (
             <View>
-                <Text>Name: {navigation.getParam('name', 'No Name')}</Text>
+                <Text>Chat App</Text>
+                <Text>Made for M335</Text>
+                <Text>Libarys:</Text>
+                <Text>React</Text>
+                <Text>Firebase</Text>
+                <Text>gifted-chat</Text>
+                <Text>...</Text>
+                <Text>Sourcecode Licensed under Unlicense</Text>
+                <Text>Code: https://github.com/ursinn/Schule-M335</Text>
             </View>
         )
     };
